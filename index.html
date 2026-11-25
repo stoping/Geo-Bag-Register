@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#123e35">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Geo Bag">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>Geo Bag Register(WRD,Jorhat)</title>
+<style>
+:root{--green:#123e35;--green2:#1d6654;--bg:#f3f6f4;--line:#d9e4df;--ink:#152b25}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px system-ui,-apple-system,Roboto,sans-serif;color:var(--ink)}
+header{background:var(--green);color:white;padding:19px 16px 16px;position:sticky;top:0;z-index:3;box-shadow:0 3px 12px #0002}
+h1{font-size:20px;margin:0 0 5px}header small{opacity:.8}
+main{max-width:760px;margin:auto;padding:13px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.card{background:white;border-radius:13px;padding:12px 9px;border:1px solid var(--line);text-align:center}
+.card label{display:block;font-size:12px;color:#60756d}.card strong{font-size:26px;display:block;margin-top:4px}
+section{background:white;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+h2{font-size:17px;margin:0 0 12px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.field{display:flex;flex-direction:column;gap:5px}.field.wide{grid-column:1/-1}
+label{font-size:13px;font-weight:600;color:#40564e}
+input{width:100%;padding:12px;border:1px solid #cbd8d2;border-radius:9px;font:inherit;background:#fff}
+button{border:0;border-radius:10px;padding:12px 13px;font:600 14px system-ui;cursor:pointer}
+.primary{background:var(--green2);color:white}.secondary{background:#e6efeb;color:var(--green)}
+.danger{background:#fff0ef;color:#a12b22}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.day{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.dayhead{background:var(--green);color:white;padding:10px 12px;display:flex;justify-content:space-between;font-weight:700}
+.boats{background:#e6efeb;color:var(--green);padding:8px 12px;font-size:13px;line-height:1.7}
+.entry{padding:10px 12px;border-top:1px solid var(--line)}
+.entrytop{display:flex;justify-content:space-between;gap:10px;font-weight:700}.meta{font-size:13px;color:#5c7068;margin-top:4px}
+.entrybuttons{display:flex;gap:7px;margin-top:8px}.entrybuttons button{padding:7px 10px;font-size:12px}
+.empty{text-align:center;color:#71847b;padding:20px}
+.note{font-size:12px;color:#687d73;line-height:1.5}
+.info{background:#e6efeb;border-radius:9px;padding:9px 11px;font-size:13px;color:var(--green)}
+.acc{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden}
+.acchead{width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--green);color:white;border-radius:0;padding:15px 14px;font-size:16px;text-align:left}
+.accbody{padding:12px}
+.filters3{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.mic{background:#fff;border:2px solid var(--green2);color:var(--green2);width:100%}
+.combo{position:relative}.combo input{padding-right:50px}
+.dd{position:absolute;right:5px;top:5px;bottom:5px;width:40px;padding:0;background:#e6efeb;color:var(--green);border-radius:7px;font-size:14px}
+.ddlist{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:4;background:#fff;border:1px solid #b9ccc4;border-radius:10px;max-height:230px;overflow-y:auto;box-shadow:0 8px 22px #0003;-webkit-overflow-scrolling:touch}
+.ddlist[hidden]{display:none}
+.ddi{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 13px;border-bottom:1px solid var(--line);font-size:15px;font-weight:600}.ddi:last-child{border-bottom:0}.ddi:active{background:#e6efeb}.ddi.none{color:#71847b;font-size:13px;font-weight:400}
+.ddi small{font-weight:400;font-size:12px;color:#6a7f76;white-space:nowrap}
+.ddt{position:sticky;top:0;background:#e6efeb;color:var(--green);font-size:12px;font-weight:700;padding:8px 13px;border-bottom:1px solid var(--line)}
+.ddh{padding:6px 13px;font-size:11px;font-weight:700;color:#60756d;background:#f6f9f7;text-transform:uppercase;letter-spacing:.04em}
+.dd.open{background:var(--green);color:#fff}
+.ddlist{overscroll-behavior:contain}
+input,button,select{font-size:16px}html{-webkit-text-size-adjust:100%}
+.warn{background:#fff3cd;border:1px solid #e6c866;color:#5c4400;border-radius:10px;padding:10px 12px;margin-bottom:12px;font-size:13px;line-height:1.5}
+@media(min-width:600px){form{grid-template-columns:repeat(2,1fr)}}
+</style></head>
+<body>
+<header><h1>Geo Bag Register(WRD,Jorhat)</h1><small>Offline launching record</small></header>
+<main>
+<div class="warn" id="warn" hidden></div>
+<div class="cards">
+ <div class="card"><label>Today's Total Launching</label><strong id="todayTotal">0</strong></div>
+ <div class="card"><label>Overall Total Launching</label><strong id="allTotal">0</strong></div>
+</div>
+<section>
+<h2 id="formTitle">Add Launching Entry</h2>
+<form id="entryForm" novalidate>
+<div class="field wide"><button type="button" class="mic" id="micBtn">🎤 Speak Entry (or type below)</button><div class="note" id="voiceStatus">Say: "Boat zero one Bindaban, launching 45, chainage 30 plus 60". Then check the boxes and tap Save Entry.</div></div>
+<div class="field"><label for="date">Date *</label><input id="date" type="date" required></div>
+<div class="field" id="boatField"><label for="boat">Boat No *</label><div class="combo"><input id="boat" required placeholder="e.g. Boat 01" autocomplete="off"><button type="button" class="dd" id="boatDD" aria-label="Previous boats">▼</button><div class="ddlist" id="boatList" hidden></div></div></div>
+<div class="field"><label for="launch">Launching (Nos) *</label><input id="launch" type="number" inputmode="numeric" min="0" step="1" required placeholder="0"></div>
+<div class="field" id="chainageField"><label for="chainage">Chainage *</label><div class="combo"><input id="chainage" required placeholder="e.g. 1+250" autocomplete="off"><button type="button" class="dd" id="chainDD" aria-label="Previous chainage">▼</button><div class="ddlist" id="chainList" hidden></div></div></div>
+<div class="field wide"><div class="info" id="info"></div></div>
+<div class="field wide"><button class="primary" type="submit" id="saveBtn">Save Entry</button></div>
+</form>
+<div class="actions"><button class="secondary" id="cancelEdit" hidden>Cancel Edit</button><button class="secondary" id="exportBtn">Export / Backup (Excel)</button><button class="secondary" id="importBtn">Import (Excel / CSV)</button><input type="file" id="importFile" accept=".xlsx,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden></div>
+<p class="note">You can add launching entries any time during the day. All four boxes must be filled. Each day's total is added up automatically; tap Daily Totals or All Entries below to open them. Entries are stored on this phone, so export a CSV backup regularly.</p>
+</section>
+<div class="acc"><button class="acchead" id="hdDaily" type="button"><span>Daily Totals</span><span id="arrowDaily">▶</span></button>
+<div class="accbody" id="bodyDaily" hidden>
+<div class="filters3"><div class="field wide"><label for="dDate">Filter date</label><input id="dDate" type="date"></div><div class="field"><label for="dBoat">Filter boat</label><input id="dBoat" placeholder="Boat number"></div><div class="field"><label for="dChain">Filter chainage</label><input id="dChain" placeholder="e.g. 30+60"></div></div>
+<div id="listDaily"></div>
+<div class="actions"><button class="secondary" id="exportDaily" type="button">Export Day-wise Totals (Excel)</button></div>
+</div></div>
+<div class="acc"><button class="acchead" id="hdAll" type="button"><span>All Entries</span><span id="arrowAll">▶</span></button>
+<div class="accbody" id="bodyAll" hidden>
+<div class="filters3"><div class="field wide"><label for="aDate">Filter date</label><input id="aDate" type="date"></div><div class="field"><label for="aBoat">Filter boat</label><input id="aBoat" placeholder="Boat number"></div><div class="field"><label for="aChain">Filter chainage</label><input id="aChain" placeholder="e.g. 30+60"></div></div>
+<div id="listAll"></div>
+</div></div>
+</main>
+<script>
+const KEY="geoBagLaunchingRegister_v1";
+let records=[], editing=null;
+const $=id=>document.getElementById(id);
+function today(){let d=new Date();return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+function num(v){return Math.max(0,Math.floor(Number(v)||0))}
+function escape(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function clean(a){return (Array.isArray(a)?a:[]).filter(r=>r&&r.date&&r.boat).map(r=>({date:String(r.date),boat:String(r.boat).trim(),launch:num(r.launch),chainage:String(r.chainage||"").trim()}))}
+$("date").value=today();
+try{records=clean(JSON.parse(localStorage.getItem(KEY)||"[]"))}catch(e){records=[]}
+const idb={
+ open(){return new Promise((res,rej)=>{const q=indexedDB.open("geobag",1);q.onupgradeneeded=()=>q.result.createObjectStore("kv");q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})},
+ async set(v){const d=await this.open();return new Promise((res,rej)=>{const t=d.transaction("kv","readwrite");t.objectStore("kv").put(v,KEY);t.oncomplete=()=>res();t.onerror=()=>rej(t.error)})},
+ async get(){const d=await this.open();return new Promise((res,rej)=>{const q=d.transaction("kv").objectStore("kv").get(KEY);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}
+};
+function showWarn(m){const w=$("warn");w.textContent=m;w.hidden=!m}
+const WARN="Warning: this phone is NOT saving your entries. Open the app from the Home Screen icon (not inside Safari, WhatsApp or Files) and export a CSV backup now.";
+function persist(){
+ let lsOk=true;
+ try{localStorage.setItem(KEY,JSON.stringify(records))}catch(e){lsOk=false}
+ idb.set(records).then(()=>showWarn("")).catch(()=>{if(!lsOk)showWarn(WARN)});
+ render();
+}
+if(location.protocol==="file:"&&!window.Android)showWarn("You opened this as a plain file, so the phone may not keep your entries. Install it to the Home Screen from the web link, and export CSV backups regularly.");
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().catch(()=>{});
+idb.get().then(v=>{v=clean(v);if(v.length>records.length){records=v;try{localStorage.setItem(KEY,JSON.stringify(records))}catch(e){}render()}}).catch(()=>{});
+
+function groups(list){const g={};list.forEach(r=>{const d=g[r.date]||(g[r.date]={total:0,boats:{},items:[]});d.total+=r.launch;const k=r.boat.toLowerCase();const b=d.boats[k]||(d.boats[k]={name:r.boat,total:0});b.total+=r.launch;d.items.push(r)});return g}
+function totalFor(date,boat,skip){let t=0;const k=boat?boat.trim().toLowerCase():null;records.forEach((r,i)=>{if(i===skip||r.date!==date)return;if(k===null||r.boat.toLowerCase()===k)t+=r.launch});return t}
+function updateInfo(){const d=$("date").value,b=$("boat").value.trim(),cur=num($("launch").value);if(!d){$("info").textContent="Choose a date.";return}
+ const day=totalFor(d,null,editing)+cur;let t="Day total after this entry: <b>"+day+"</b>";if(b)t+=" &nbsp;|&nbsp; "+escape(b)+": <b>"+(totalFor(d,b,editing)+cur)+"</b>";$("info").innerHTML=t}
+function filt(p){let list=records.map((r,i)=>({...r,_i:i}));const fd=$(p+"Date").value,fb=$(p+"Boat").value.trim().toLowerCase(),fc=$(p+"Chain").value.trim().toLowerCase();if(fd)list=list.filter(r=>r.date===fd);if(fb)list=list.filter(r=>r.boat.toLowerCase().includes(fb));if(fc)list=list.filter(r=>r.chainage.toLowerCase().includes(fc));return list}
+function boatLine(d){return Object.values(d.boats).sort((a,b)=>a.name.localeCompare(b.name,undefined,{numeric:true})).map(b=>escape(b.name)+": <b>"+b.total+"</b>").join(" &nbsp;|&nbsp; ")}
+function dayHead(date,d){return `<div class="dayhead"><span>${escape(date)}</span><span>Day Total: ${d.total}</span></div><div class="boats">${boatLine(d)}</div>`}
+function renderDaily(){const g=groups(filt("d")),dates=Object.keys(g).sort().reverse();
+ $("listDaily").innerHTML=dates.length?dates.map(date=>`<div class="day">${dayHead(date,g[date])}</div>`).join(""):'<div class="empty">No entries found.</div>'}
+function renderAll(){const g=groups(filt("a")),dates=Object.keys(g).sort().reverse();
+ $("listAll").innerHTML=dates.length?dates.map(date=>{const d=g[date];return `<div class="day">${dayHead(date,d)}`+d.items.slice().sort((x,y)=>byBoat(x.boat,y.boat)||x._i-y._i).map(r=>`<div class="entry"><div class="entrytop"><span>${escape(r.boat)}</span><span>Launching: ${r.launch}</span></div><div class="meta">Chainage: ${escape(r.chainage||"—")}</div><div class="entrybuttons"><button class="secondary" onclick="editEntry(${r._i})">Edit</button><button class="danger" onclick="deleteEntry(${r._i})">Delete</button></div></div>`).join("")+`</div>`}).join(""):'<div class="empty">No entries found.</div>'}
+function render(){
+ $("todayTotal").textContent=totalFor(today());
+ $("allTotal").textContent=records.reduce((a,r)=>a+r.launch,0);
+ renderDaily();renderAll();updateInfo();
+}
+function toggle(n){const b=$("body"+n),open=b.hidden;b.hidden=!open;$("arrow"+n).textContent=open?"▼":"▶"}
+$("hdDaily").onclick=()=>toggle("Daily");
+$("hdAll").onclick=()=>toggle("All");
+["Date","Boat","Chain"].forEach(k=>{["d","a"].forEach(p=>{const el=$(p+k),fn=p==="d"?renderDaily:renderAll;el.addEventListener("input",fn);el.addEventListener("change",fn)})});
+function missing(r,launchRaw){const m=[];if(!r.date)m.push("Date");if(!r.boat)m.push("Boat No");if(String(launchRaw).trim()==="")m.push("Launching (Nos)");if(!r.chainage)m.push("Chainage");return m}
+$("entryForm").addEventListener("submit",e=>{
+ e.preventDefault();let r={date:$("date").value,boat:$("boat").value.trim(),launch:num($("launch").value),chainage:$("chainage").value.trim()};
+ const m=missing(r,$("launch").value);
+ if(m.length){alert("Please fill all four fields. Missing: "+m.join(", "));return}
+ if(editing===null)records.push(r);else records[editing]=r;
+ resetForm();persist();
+});
+function resetForm(){const d=$("date").value;editing=null;$("entryForm").reset();$("date").value=d||today();$("formTitle").textContent="Add Launching Entry";$("saveBtn").textContent="Save Entry";$("cancelEdit").hidden=true;closeDD();updateInfo()}
+window.editEntry=i=>{let r=records[i];editing=i;$("date").value=r.date;$("boat").value=r.boat;$("launch").value=r.launch;$("chainage").value=r.chainage;$("formTitle").textContent="Edit Launching Entry";$("saveBtn").textContent="Update Entry";$("cancelEdit").hidden=false;updateInfo();window.scrollTo({top:0,behavior:"smooth"})};
+window.deleteEntry=i=>{if(confirm("Delete this entry?")){records.splice(i,1);if(editing===i)resetForm();persist()}};
+$("cancelEdit").onclick=resetForm;
+["date","boat","launch"].forEach(id=>{$(id).addEventListener("input",updateInfo);$(id).addEventListener("change",updateInfo)});
+
+
+function toCSV(rows){return rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n")}
+const IOS=/iP(hone|ad|od)/.test(navigator.userAgent||"")||((navigator.platform||"")==="MacIntel"&&navigator.maxTouchPoints>1);
+function shareFile(blob,name,type){
+ try{if(!IOS)return false;const file=new File([blob],name,{type});
+  if(navigator.canShare&&navigator.share&&navigator.canShare({files:[file]})){navigator.share({files:[file],title:name}).catch(()=>{});return true}}catch(e){}
+ return false}
+function saveCSV(csv,name){
+ if(window.Android&&Android.saveCsv)Android.saveCsv(csv);
+ else{let blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"});if(shareFile(blob,name,"text/csv"))return;let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href)}
+}
+function fmtDate(d){const p=String(d).split("-");return p.length===3?p[2]+"-"+p[1]+"-"+p[0]:d}
+function parseDate(x){x=String(x).trim();let m=x.match(/^(\d{1,2})[-\/.](\d{1,2})[-\/.](\d{4})$/);if(m)return m[3]+"-"+m[2].padStart(2,"0")+"-"+m[1].padStart(2,"0");m=x.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);if(m)return m[1]+"-"+m[2].padStart(2,"0")+"-"+m[3].padStart(2,"0");return x}
+function byBoat(a,b){return a.localeCompare(b,undefined,{numeric:true,sensitivity:"base"})}
+/* merged=true: one row per boat per day (Day-wise Totals). merged=false: every entry, with Chainage (Backup). */
+function layoutCSV(merged){
+ const g=groups(records),rows=[merged?["Date","Boat No","Launching (Nos)"]:["Date","Boat No","Launching (Nos)","Chainage"]];
+ Object.keys(g).sort().forEach(date=>{
+  const d=g[date];let list;
+  if(merged)list=Object.values(d.boats).sort((a,b)=>byBoat(a.name,b.name)).map(b=>[b.name,b.total]);
+  else list=d.items.map((r,i)=>({r,i})).sort((x,y)=>byBoat(x.r.boat,y.r.boat)||x.i-y.i).map(o=>[o.r.boat,o.r.launch,o.r.chainage]);
+  const n=rows.length+1,first=n+1,last=n+list.length;
+  
+  rows.push(merged?[fmtDate(date),"DAY TOTAL","=SUM(C"+first+":C"+last+")"]:[fmtDate(date),"DAY TOTAL","=SUM(C"+first+":C"+last+")",""]);
+  list.forEach(x=>rows.push(merged?["",x[0],x[1]]:["",x[0],x[1],x[2]]));
+ });
+ if(rows.length>1){const n=rows.length,gt=Object.values(g).reduce((a,d)=>a+d.total,0);rows.push(merged?["","GRAND TOTAL","=SUMIF(B2:B"+n+",\"DAY TOTAL\",C2:C"+n+")"]:["","GRAND TOTAL","=SUMIF(B2:B"+n+",\"DAY TOTAL\",C2:C"+n+")",""])}
+ return toCSV(rows);
+}
+function parseCSV(t){t=t.replace(/^\ufeff/,"");const rows=[];let row=[],f="",q=false;for(let i=0;i<t.length;i++){const c=t[i];if(q){if(c==='"'){if(t[i+1]==='"'){f+='"';i++}else q=false}else f+=c}else if(c==='"')q=true;else if(c===","){row.push(f);f=""}else if(c==="\n"||c==="\r"){if(c==="\r"&&t[i+1]==="\n")i++;row.push(f);f="";rows.push(row);row=[]}else f+=c}if(f!==""||row.length){row.push(f);rows.push(row)}return rows.filter(r=>r.some(x=>x.trim()!==""))}
+/* ---------- Excel (.xlsx) writer and reader ---------- */
+const XLSX_MIME="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+const XML_HEAD='<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+function xe(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;")}
+function colName(i){return String.fromCharCode(65+i)}
+function sCell(ref,st,t){return '<c r="'+ref+'" s="'+st+'" t="inlineStr"><is><t xml:space="preserve">'+xe(t)+'</t></is></c>'}
+function nCell(ref,st,n){return '<c r="'+ref+'" s="'+st+'"><v>'+n+'</v></c>'}
+function fCell(ref,st,f,v){return '<c r="'+ref+'" s="'+st+'"><f>'+f+'</f><v>'+v+'</v></c>'}
+function eCell(ref,st){return '<c r="'+ref+'" s="'+st+'"/>'}
+function layoutModel(merged){const g=groups(records);return Object.keys(g).sort().map(date=>{const d=g[date];let list;
+ if(merged)list=Object.values(d.boats).sort((a,b)=>byBoat(a.name,b.name)).map(b=>[b.name,b.total,""]);
+ else list=d.items.map((r,i)=>({r,i})).sort((x,y)=>byBoat(x.r.boat,y.r.boat)||x.i-y.i).map(o=>[o.r.boat,o.r.launch,o.r.chainage]);
+ return{date,total:d.total,list}})}
+function sheetXML(merged){
+ const cols=merged?3:4,rows=[];let r=1;
+ const heads=merged?["Date","Boat No","Launching (Nos)"]:["Date","Boat No","Launching (Nos)","Chainage"];
+ rows.push('<row r="1">'+heads.map((h,i)=>sCell(colName(i)+"1",1,h)).join("")+'</row>');
+ layoutModel(merged).forEach(d=>{
+  r++;const first=r+1,lastR=r+d.list.length;
+  let x=sCell("A"+r,2,fmtDate(d.date))+sCell("B"+r,2,"DAY TOTAL")+fCell("C"+r,3,"SUM(C"+first+":C"+lastR+")",d.total);
+  if(!merged)x+=eCell("D"+r,2);
+  rows.push('<row r="'+r+'">'+x+'</row>');
+  d.list.forEach(it=>{r++;let y=sCell("B"+r,4,it[0])+nCell("C"+r,5,it[1]);if(!merged)y+=it[2]?sCell("D"+r,6,it[2]):eCell("D"+r,6);rows.push('<row r="'+r+'">'+y+'</row>')});
+ });
+ const model=layoutModel(merged);
+ if(model.length){const lastData=r,gt=model.reduce((a,d)=>a+d.total,0);r+=2;
+  let g=eCell("A"+r,7)+sCell("B"+r,7,"GRAND TOTAL")+fCell("C"+r,8,'SUMIF(B2:B'+lastData+',"DAY TOTAL",C2:C'+lastData+')',gt);if(!merged)g+=eCell("D"+r,7);
+  rows.push('<row r="'+r+'">'+g+'</row>')}
+ return XML_HEAD+'<worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><dimension ref="A1:'+colName(cols-1)+r+'"/><sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/><selection pane="bottomLeft" activeCell="A2" sqref="A2"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols><col min="1" max="1" width="16" customWidth="1"/><col min="2" max="2" width="30" customWidth="1"/><col min="3" max="3" width="18" customWidth="1"/>'+(merged?"":'<col min="4" max="4" width="14" customWidth="1"/>')+'</cols><sheetData>'+rows.join("")+'</sheetData><pageMargins left="0.75" right="0.75" top="1" bottom="1" header="0.5" footer="0.5"/></worksheet>';
+}
+const STYLES_XML=XML_HEAD+'<styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><fonts count="4"><font><sz val="11"/><color rgb="FF000000"/><name val="Calibri"/><family val="2"/></font><font><b/><color rgb="FFFFFFFF"/><name val="Arial"/></font><font><b/><i/><name val="Arial"/></font><font><name val="Arial"/></font></fonts><fills count="4"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF1F3864"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFDDEBF7"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left/><right/><top style="thin"><color rgb="FF999999"/></top><bottom style="thin"><color rgb="FF999999"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="9"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment horizontal="center"/></xf><xf numFmtId="0" fontId="2" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1"/><xf numFmtId="0" fontId="2" fillId="3" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="right"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment indent="2"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="right"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment horizontal="center"/></xf><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1" applyAlignment="1"><alignment horizontal="right"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>';
+const CRC_T=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(b){let c=0xFFFFFFFF;for(let i=0;i<b.length;i++)c=CRC_T[(c^b[i])&255]^(c>>>8);return(c^0xFFFFFFFF)>>>0}
+function makeZip(files){
+ const enc=new TextEncoder(),parts=[],cen=[];let off=0;
+ files.forEach(f=>{const nb=enc.encode(f.name),d=enc.encode(f.text),crc=crc32(d);
+  const lh=new DataView(new ArrayBuffer(30));lh.setUint32(0,0x04034b50,true);lh.setUint16(4,20,true);lh.setUint16(6,0x0800,true);lh.setUint16(12,23928,true);lh.setUint32(14,crc,true);lh.setUint32(18,d.length,true);lh.setUint32(22,d.length,true);lh.setUint16(26,nb.length,true);
+  parts.push(new Uint8Array(lh.buffer),nb,d);
+  const ch=new DataView(new ArrayBuffer(46));ch.setUint32(0,0x02014b50,true);ch.setUint16(4,20,true);ch.setUint16(6,20,true);ch.setUint16(8,0x0800,true);ch.setUint16(14,23928,true);ch.setUint32(16,crc,true);ch.setUint32(20,d.length,true);ch.setUint32(24,d.length,true);ch.setUint16(28,nb.length,true);ch.setUint32(42,off,true);
+  cen.push(new Uint8Array(ch.buffer),nb);off+=30+nb.length+d.length});
+ let cs=0;cen.forEach(c=>cs+=c.length);
+ const end=new DataView(new ArrayBuffer(22));end.setUint32(0,0x06054b50,true);end.setUint16(8,files.length,true);end.setUint16(10,files.length,true);end.setUint32(12,cs,true);end.setUint32(16,off,true);
+ const all=parts.concat(cen,[new Uint8Array(end.buffer)]);let n=0;all.forEach(p=>n+=p.length);const out=new Uint8Array(n);let o=0;all.forEach(p=>{out.set(p,o);o+=p.length});return out}
+function buildXlsx(merged){return makeZip([
+ {name:"[Content_Types].xml",text:XML_HEAD+'<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>'},
+ {name:"_rels/.rels",text:XML_HEAD+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'},
+ {name:"xl/workbook.xml",text:XML_HEAD+'<workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets><sheet name="Launching Register" sheetId="1" r:id="rId1"/></sheets></workbook>'},
+ {name:"xl/_rels/workbook.xml.rels",text:XML_HEAD+'<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>'},
+ {name:"xl/styles.xml",text:STYLES_XML},
+ {name:"xl/worksheets/sheet1.xml",text:sheetXML(merged)}])}
+function toB64(u8){let s="";for(let i=0;i<u8.length;i+=0x8000)s+=String.fromCharCode.apply(null,u8.subarray(i,i+0x8000));return btoa(s)}
+function saveXlsx(merged,name){
+ const csvName=name.replace(/\.xlsx$/,".csv");
+ try{
+  const u8=buildXlsx(merged);
+  if(window.Android&&Android.saveFile){Android.saveFile(toB64(u8),name,XLSX_MIME);return}
+  if(window.Android){alert("Excel export needs the latest app version (MainActivity.java). Saving a CSV instead.");saveCSV(layoutCSV(merged),csvName);return}
+  const blob=new Blob([u8],{type:XLSX_MIME});if(shareFile(blob,name,XLSX_MIME))return;const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;a.click();URL.revokeObjectURL(a.href);
+ }catch(e){alert("Excel export failed. Saving a CSV instead.");saveCSV(layoutCSV(merged),csvName)}
+}
+$("exportBtn").onclick=()=>saveXlsx(false,"Geo_Bag_Launching_Register.xlsx");
+$("exportDaily").onclick=()=>saveXlsx(true,"Geo_Bag_Daywise_Totals.xlsx");
+async function inflateRaw(u8){const ds=new DecompressionStream("deflate-raw"),w=ds.writable.getWriter();w.write(u8);w.close();return new Uint8Array(await new Response(ds.readable).arrayBuffer())}
+async function unzipFiles(buf){
+ const u=new Uint8Array(buf),dv=new DataView(buf),dec=new TextDecoder(),files={};let e=u.length-22;
+ while(e>=0&&dv.getUint32(e,true)!==0x06054b50)e--;if(e<0)throw new Error("not a zip");
+ const n=dv.getUint16(e+10,true);let p=dv.getUint32(e+16,true);
+ for(let i=0;i<n;i++){if(dv.getUint32(p,true)!==0x02014b50)break;
+  const method=dv.getUint16(p+10,true),csz=dv.getUint32(p+20,true),nl=dv.getUint16(p+28,true),el=dv.getUint16(p+30,true),cl=dv.getUint16(p+32,true),lo=dv.getUint32(p+42,true),name=dec.decode(u.subarray(p+46,p+46+nl));
+  const start=lo+30+dv.getUint16(lo+26,true)+dv.getUint16(lo+28,true),raw=u.subarray(start,start+csz);
+  if(/^xl\/(worksheets\/sheet\d+\.xml|sharedStrings\.xml)$/.test(name))files[name]=dec.decode(method===0?raw:await inflateRaw(raw));
+  p+=46+nl+el+cl}
+ return files}
+function unxml(s){return s.replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&#(\d+);/g,(m,d)=>String.fromCharCode(+d)).replace(/&amp;/g,"&")}
+function textOf(x){let o="",m;const re=/<t\b[^>]*>([\s\S]*?)<\/t>/g;while((m=re.exec(x)))o+=m[1];return unxml(o)}
+function gridFromXlsx(files){
+ const name=Object.keys(files).filter(k=>/worksheets\/sheet\d+\.xml$/.test(k)).sort()[0];if(!name)return null;
+ const sst=[];if(files["xl/sharedStrings.xml"]){const re=/<si\b[^>]*>([\s\S]*?)<\/si>/g;let m;while((m=re.exec(files["xl/sharedStrings.xml"])))sst.push(textOf(m[1]))}
+ const cells={},re=/<c\b([^>]*?)(?:\/>|>([\s\S]*?)<\/c>)/g;let m,maxR=0;
+ while((m=re.exec(files[name]))){const at=m[1],inner=m[2]||"",ref=(at.match(/\br="([A-Z]+)(\d+)"/)||[]);if(!ref[1])continue;
+  const t=(at.match(/\bt="(\w+)"/)||[])[1],v=(inner.match(/<v>([\s\S]*?)<\/v>/)||[])[1];let val="";
+  if(t==="s")val=sst[+v]||"";else if(t==="inlineStr")val=textOf(inner);else if(v!==undefined)val=unxml(v);
+  let ci=0;for(const ch of ref[1])ci=ci*26+(ch.charCodeAt(0)-64);ci--;const ri=+ref[2];
+  (cells[ri]||(cells[ri]={}))[ci]=val;if(ri>maxR)maxR=ri}
+ const rows=[];for(let r=1;r<=maxR;r++){const c=cells[r];if(!c)continue;const w=Math.max(...Object.keys(c).map(Number))+1,a=[];for(let i=0;i<w;i++)a.push(c[i]==null?"":String(c[i]));if(a.some(x=>x.trim()!==""))rows.push(a)}
+ return rows}
+function importGrid(rows){
+ if(!rows||rows.length<2)return null;
+ const h=rows[0].map(x=>x.trim().toLowerCase());
+ const di=h.findIndex(x=>x.includes("date")),bi=h.findIndex(x=>x.includes("boat")),li=h.findIndex(x=>x.includes("launch")),ci=h.findIndex(x=>x.includes("chainage"));
+ if(di<0||bi<0||li<0)return null;
+ let last="";const out=[];
+ rows.slice(1).forEach(r=>{let d=(r[di]||"").trim();
+  if(/^\d{5}(\.\d+)?$/.test(d)){const t=new Date(Math.round((parseFloat(d)-25569)*864e5));d=t.getUTCFullYear()+"-"+String(t.getUTCMonth()+1).padStart(2,"0")+"-"+String(t.getUTCDate()).padStart(2,"0")}
+  if(d)last=parseDate(d);const boat=(r[bi]||"").trim();
+  if(!boat||/^(day|grand|all)\s*total$/i.test(boat)||!last)return;
+  out.push({date:last,boat,launch:num(r[li]),chainage:ci>=0?(r[ci]||"").trim():""})});
+ return out}
+function importRows(text){return importGrid(parseCSV(text))}
+function readAs(file,how){return new Promise((res,rej)=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.onerror=()=>rej(fr.error);how==="buf"?fr.readAsArrayBuffer(file):fr.readAsText(file)})}
+$("importBtn").onclick=()=>$("importFile").click();
+$("importFile").onchange=async e=>{const file=e.target.files[0];e.target.value="";if(!file)return;
+ try{let data;
+  if(/\.xlsx$/i.test(file.name)||/spreadsheetml/.test(file.type)){
+   if(typeof DecompressionStream==="undefined"){alert("This phone cannot read Excel files here. Please import a CSV backup instead.");return}
+   data=importGrid(gridFromXlsx(await unzipFiles(await readAs(file,"buf"))));
+  }else data=importRows(String(await readAs(file,"text")));
+  if(!data||!data.length){alert("No valid entries found. Please choose the Export / Backup file.");return}
+  if(confirm("Import "+data.length+" entries? They will be added to your existing "+records.length+" entries.")){records=records.concat(data);persist();alert("Imported "+data.length+" entries.")}
+ }catch(err){alert("Could not read this file.")}};
+
+
+/* ---------- Previous-entry list (hidden until you tap the arrow) ---------- */
+function allBoats(){const seen=new Set(),out=[];records.forEach(r=>{const k=r.boat.toLowerCase();if(!seen.has(k)){seen.add(k);out.push(r.boat)}});return out.sort(byBoat)}
+function recentChains(boat){const bk=boat.trim().toLowerCase(),seen=new Set(),mine=[],others=[];
+ if(bk)for(let i=records.length-1;i>=0;i--){const r=records[i],c=r.chainage;if(!c||r.boat.toLowerCase()!==bk||seen.has(c))continue;seen.add(c);mine.push(c)}
+ for(let i=records.length-1;i>=0;i--){const c=records[i].chainage;if(!c||seen.has(c))continue;seen.add(c);others.push(c)}
+ return mine.concat(others).slice(0,60)}
+function lastChain(name){const k=name.toLowerCase();for(let i=records.length-1;i>=0;i--){if(records[i].boat.toLowerCase()===k&&records[i].chainage)return records[i].chainage}return ""}
+function chainParts(boat){const bk=boat.trim().toLowerCase(),seen=new Set(),mine=[],others=[];
+ if(bk)for(let i=records.length-1;i>=0;i--){const r=records[i],c=r.chainage;if(!c||r.boat.toLowerCase()!==bk||seen.has(c))continue;seen.add(c);mine.push({c})}
+ for(let i=records.length-1;i>=0;i--){const r=records[i],c=r.chainage;if(!c||seen.has(c))continue;seen.add(c);others.push({c,boat:r.boat})}
+ return {mine:mine.slice(0,60),others:others.slice(0,60)}}
+function closeDD(){["boat","chain"].forEach(k=>{$(k+"List").hidden=true;const b=$(k+"DD");b.classList.remove("open");b.textContent="▼"})}
+function ddRow(v,sub){return `<div class="ddi" data-v="${escape(v)}"><span>${escape(v)}</span>${sub?`<small>${escape(sub)}</small>`:""}</div>`}
+function openDD(kind){
+ const el=$(kind==="boat"?"boatList":"chainList"),was=!el.hidden;closeDD();if(was)return;
+ let h="";
+ if(kind==="boat"){const l=allBoats();h=`<div class="ddt">Previous boats · scroll and tap</div>`+(l.length?l.map(n=>{const c=lastChain(n);return ddRow(n,c?"last "+c:"")}).join(""):'<div class="ddi none">No previous entries yet</div>')}
+ else{const boat=$("boat").value.trim(),p=chainParts(boat);h=`<div class="ddt">Previous chainage · scroll and tap</div>`;
+  if(p.mine.length)h+=`<div class="ddh">Used by ${escape(boat)}</div>`+p.mine.map(x=>ddRow(x.c,"")).join("");
+  if(p.others.length)h+=`<div class="ddh">${p.mine.length?"Other chainage":"Used before"}</div>`+p.others.map(x=>ddRow(x.c,x.boat)).join("");
+  if(!p.mine.length&&!p.others.length)h+='<div class="ddi none">No previous entries yet</div>'}
+ el.innerHTML=h;el.hidden=false;const bt=$(kind==="boat"?"boatDD":"chainDD");bt.classList.add("open");bt.textContent="▲";
+}
+$("boatDD").addEventListener("click",()=>openDD("boat"));
+$("chainDD").addEventListener("click",()=>openDD("chain"));
+$("boatList").addEventListener("click",e=>{const c=e.target.closest(".ddi");if(!c||!c.dataset.v)return;$("boat").value=c.dataset.v;closeDD();updateInfo()});
+$("chainList").addEventListener("click",e=>{const c=e.target.closest(".ddi");if(!c||!c.dataset.v)return;$("chainage").value=c.dataset.v;closeDD();updateInfo()});
+document.addEventListener("pointerdown",e=>{if(!e.target.closest(".combo"))closeDD()});
+/* ---------- Voice entry ---------- */
+const ONES={zero:0,oh:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19};
+const TENS={twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90};
+function normNumbers(t){
+ const w=t.toLowerCase().replace(/,/g," ").split(/\s+/).filter(Boolean),out=[];
+ const isNum=x=>(x in ONES)||(x in TENS)||x==="hundred"||x==="thousand";
+ let i=0;
+ while(i<w.length){
+  if(!isNum(w[i])){out.push(w[i]);i++;continue}
+  let j=i;const seq=[];
+  while(j<w.length&&(isNum(w[j])||(w[j]==="and"&&seq.length&&j+1<w.length&&isNum(w[j+1])))){if(w[j]!=="and")seq.push(w[j]);j++}
+  if(seq.length>1&&seq.every(x=>(x in ONES)&&ONES[x]<10))out.push(seq.map(x=>ONES[x]).join(""));
+  else{let total=0,cur=0;const nums=[];seq.forEach(x=>{if((x in TENS)&&(cur%100)>=20){nums.push(total+cur);total=0;cur=0}if(x in ONES)cur+=ONES[x];else if(x in TENS)cur+=TENS[x];else if(x==="hundred")cur=(cur||1)*100;else{total+=(cur||1)*1000;cur=0}});nums.push(total+cur);nums.forEach(n=>out.push(String(n)))}
+  i=j;
+ }
+ return out.join(" ");
+}
+function bkey(x){return String(x).toLowerCase().replace(/[^a-z0-9]/g,"")}
+function matchBoat(spoken){
+ spoken=spoken.trim();if(!spoken)return "";
+ const names=[...new Set(records.map(r=>r.boat))],k=bkey(spoken);
+ let m=names.find(n=>bkey(n)===k);if(m)return m;
+ if(/^\d+$/.test(k)){m=names.filter(n=>/^\d+$/.test(bkey(n))&&Number(bkey(n))===Number(k));if(m.length===1)return m[0]}
+ return spoken.charAt(0).toUpperCase()+spoken.slice(1);
+}
+function parseVoice(text){
+ const t=normNumbers(text.toLowerCase().replace(/[.]/g," ")),res={boat:"",launch:"",chainage:"",date:""};
+ const re=/\b(boat(?:\s+(?:number|no))?|board|boot|launching|launched|launch|lunching|chain\s?age|chainages?|chaining|chain\s?edge|seines?|shenaz|shainage|chenage|date)\b/g,hits=[];let m;
+ while((m=re.exec(t)))hits.push({type:/^(boat|board|boot)/.test(m[1])?"boat":/^(launch|lunch)/.test(m[1])?"launch":/^(chain|seine|shenaz|shainage|chenage)/.test(m[1])?"chainage":"date",start:m.index,end:m.index+m[0].length});
+ hits.forEach((h,i)=>{const val=t.slice(h.end,i+1<hits.length?hits[i+1].start:t.length).trim();if(h.type==="boat"&&!res.boat)res.boat=matchBoat(val);
+  else if(h.type==="launch"&&!res.launch){const n=val.match(/\d+/);if(n)res.launch=n[0]}
+  else if(h.type==="chainage"&&!res.chainage){let c=val.replace(/\s*(plus|\+)\s*/g,"+").trim();if(/^\d+\s+\d+$/.test(c))c=c.replace(/\s+/,"+");c=c.replace(/[^0-9+]/g,"");if(c)res.chainage=c}});
+ if(/\byesterday\b/.test(t)){const d=new Date();d.setDate(d.getDate()-1);res.date=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`}
+ else if(/\btoday\b/.test(t))res.date=today();
+ return res;
+}
+function score(r){return (r.boat?1:0)+(r.launch?1:0)+(r.chainage?1:0)}
+window.onVoiceResult=function(arr){
+ if(!Array.isArray(arr))arr=[String(arr)];
+ let best=null,bestText="";arr.forEach(x=>{const p=parseVoice(String(x));if(!best||score(p)>score(best)){best=p;bestText=String(x)}});
+ if(!best){$("voiceStatus").textContent="Could not understand. Please try again or type.";return}
+ if(best.date)$("date").value=best.date;
+ if(best.boat)$("boat").value=best.boat;
+ if(best.launch!=="")$("launch").value=best.launch;
+ if(best.chainage)$("chainage").value=best.chainage;
+ const miss=[];if(!best.boat)miss.push("Boat No");if(best.launch==="")miss.push("Launching");if(!best.chainage)miss.push("Chainage");
+ $("voiceStatus").innerHTML="Heard: <b>"+escape(bestText)+"</b><br>"+(miss.length?"Not heard: "+miss.join(", ")+". Type it or tap Speak again.":"Check the boxes, then tap Save Entry.");
+ updateInfo();
+};
+window.onVoiceError=function(msg){$("voiceStatus").textContent=msg||"Voice input failed. Please type instead."};
+$("micBtn").onclick=()=>{
+ if(window.Android&&Android.startVoice){$("voiceStatus").textContent="Listening…";Android.startVoice();return}
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){onVoiceError("Voice input is not available here. Please type instead.");return}
+ try{const rec=new SR();rec.lang="en-IN";rec.maxAlternatives=3;rec.interimResults=false;
+  rec.onresult=e=>{const a=[];for(let i=0;i<e.results[0].length;i++)a.push(e.results[0][i].transcript);onVoiceResult(a)};
+  rec.onerror=()=>onVoiceError("Could not hear. Please try again or type.");
+  $("voiceStatus").textContent="Listening…";rec.start()}catch(e){onVoiceError("Voice input failed. Please type instead.")}
+};
+if("serviceWorker" in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("sw.js").catch(()=>{});
+render();
+</script></body></html>
